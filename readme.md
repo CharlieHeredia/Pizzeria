@@ -1,13 +1,11 @@
-Basic MVC template with PHP
+Pizzeria
 =====================
 
-Basic structure with MVC design pattern
+MVC
 
 This repository was built with the following technologies:
 
   - PHP
   - AJAX
 
-## Connect with me
-
-Linkedin https://www.linkedin.com/in/migueref
+# Pizzeria
