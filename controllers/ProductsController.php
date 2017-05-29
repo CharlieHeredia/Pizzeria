@@ -14,6 +14,7 @@ if( isset($_POST['funcion']) ) {
 														$item->_precio,
 														$categoria,
 														$item->_descripcion);
+													
 		$producto->save();
 	}
 

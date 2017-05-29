@@ -15,6 +15,7 @@ class Product {
 
 	// return rows
 	public function save() {
+		
 		$db = new Database();
 		$sql = "INSERT INTO
 						 	producto(nombre, precio, categoria_id, descripcion)
