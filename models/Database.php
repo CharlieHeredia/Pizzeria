@@ -27,7 +27,7 @@
 			return true;
 
 		}
-		
+
 		function query($sql) {
 			$this->connect();
 			if (!$query =$this->mysqli->query($sql)) {

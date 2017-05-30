@@ -13,22 +13,13 @@ class Admon {
     $this->password = $password;
   }
 
-  static function Login($datos) {
-		$sql = " SELECT
-		 						usuario, contraseña
-							FROM
-								administrador
-						";
-		$db = new Database();
-
-		if($rows = $db->query($sql)) {
-      $row = mysql_fetch_array($rows);
-      if($row['usuario'] == $datos['_usuario'] ){
-          header('location: Acerto.php ');
-      }else{
-        //header('location: fallo.php ');
-      }
+  static function Login($usuario,$pass) {
+      $db = new Database();
+  		$sql = " SELECT * FROM administrador WHERE usuario='$usuario' AND password='$pass'  ";
+  		if($rows = $db->query($sql)) {
+          return true;
+        }else{
+          return false;
+        }
 		}
-		return false;
-	}
 }

@@ -1,6 +1,7 @@
 <?php
 	include_once("controllers/ProductsController.php");
 	include_once("controllers/AdministradorControllers.php");
+	session_destroy();
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,35 +61,41 @@
 
 		<!-- Bootstrap Modal - To sign up -->
     <!-- Modal -->
-    <div class="modal fade" id="sign_up_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	    <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-			    <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="myModalLabel">Inicio de Sesión</h4>
-			    </div>
-			    <div class="modal-body">
+		<form class="" action="controllers/login.php" method="post" id="funcion" value="Inicio_Sesion" name="Inicio_Sesion">
+			<div class="modal fade" id="sign_up_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		    <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+				    <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="myModalLabel">Inicio de Sesión</h4>
+				    </div>
+				    <div class="modal-body">
 
-			        <div class="form-group">
-			            <label for="user">Usuario</label>
-			            <input type="text" id="user" placeholder="Ingrese usuario" class="form-control"/>
-			        </div>
+				        <div class="form-group">
+				            <label for="user">Usuario</label>
+				            <input type="text" id="user" name="user" placeholder="Ingrese usuario" class="form-control"/>
+				        </div>
 
-			        <div class="form-group">
-			            <label for="password">Password</label>
-			            <input type="password" id="password" placeholder="Ingrese password" class="form-control"/>
-			        </div>
+				        <div class="form-group">
+				            <label for="password">Password</label>
+				            <input type="password" id="password" name="password" placeholder="Ingrese password" class="form-control"/>
+				        </div>
 
-			    </div>
-			    <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-			        <button type="button" class="btn btn-primary" id="ingresar_administrador">Ingresar</button>
+				    </div>
+				    <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				        <button type="submit" class="btn btn-primary" id="ingresar_administrador">Ingresar</button>
+				    </div>
 			    </div>
 		    </div>
 	    </div>
-    </div>
+		</form>
+
 
 		<!-- script sign_up modal -->
+
+
+		<!--
 		<script type="text/javascript" src="assets/js/administrador.js"></script>
 		<script type="text/javascript">
 			let ingresar_admin = document.querySelector("#ingresar_administrador");
@@ -104,12 +111,19 @@
 					url: "controllers/AdministradorControllers.php",
 					data: { admin_datos: adminJSON , funcion:  "Inicio_Sesion" }
 				})
-				.done(function() {
+				.done(function(respuesta) {
 				   console.log( "Datos enviados "+adminJSON+" : "+admin['usuario']);
+					  respuesta = $.ajax.responseText;
+					 console.log("respuesta:  "+respuesta);
+					 alert('yey '+respuesta);
+
+
+
+
 				 });
 			})
 
-		</script>
+		</script> -->
 		<!-- FORMULARIO PARA MOSTRAR LOS PRODUCTOS REGISTRADOS -->
 		<div class="front absolute card col-xs-12">
 			<select class="form-control" name="">
