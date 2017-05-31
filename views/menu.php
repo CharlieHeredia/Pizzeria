@@ -16,7 +16,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- my css file -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
   </head>
   <body>
     <!-- header -->
@@ -56,7 +56,7 @@
       </nav>
     </header>
     <div class="video-container">
-      <video class="video" src="./public/video.mp4" autoplay loop="">
+      <video class="video" src="../public/video.mp4" autoplay loop="">
       </video>
     </div>
 

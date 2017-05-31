@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['UsuarioReady']='true';
+
 if( isset($_POST['funcion']) ) {
 	require_once("../models/Cliente.php");
 	require_once("../models/Cleaner.php");
@@ -15,6 +15,7 @@ if( isset($_POST['funcion']) ) {
 														$item->_telefono);
 
 		$cliente->save();
+		$_SESSION['UsuarioReady']=true;
 	}
 
 } else {

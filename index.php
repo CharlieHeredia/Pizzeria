@@ -5,7 +5,7 @@
 	session_destroy();
 	session_start();
 	$activo='false';
-	$_SESSION['UsuarioReady']='';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -165,7 +165,11 @@
 
 
 		<!-- FORMULARIO PARA REGISTRAR CLIENTES -->
-
+<?php
+if ( isset($_SESSION['UsuarioReady'])) {
+	echo "<script> alert('hola') </script>";
+}
+ ?>
     <div class="video-container vertical-center">
       <div class="front absolute card col-xs-12">
         <h2 class ="white-text">INGRESE SUS DATOS</h2>
@@ -207,15 +211,7 @@
 				})
 				.done(function(){
 					console.log("Cliente guardado ");
-					<?php
 
-							if ($_SESSION['UsuarioReady'] == 'true') {
-								echo " <script> alert('entro'); </script>";
-								//header('Location: views/menu.php');
-							}else {
-								//echo " <script> alert('enasdadsasdo'); </script>";
-							}
-					 ?>
 				})
 			})
 		</script>
