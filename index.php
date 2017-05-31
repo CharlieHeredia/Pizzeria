@@ -2,10 +2,16 @@
 	include_once("controllers/ProductsController.php");
 	include_once("controllers/ClienteController.php");
 	include_once("controllers/AdministradorControllers.php");
-	session_destroy();
+	if(!isset($_SESSION))
+    {
+        session_start();
+    } else {
+    	session_destroy();
+    }
+
 	session_start();
 	$activo='false';
-
+	$_SESSION['UsuarioReady']=false;
 ?>
 <!DOCTYPE html>
 <html>
@@ -165,11 +171,7 @@
 
 
 		<!-- FORMULARIO PARA REGISTRAR CLIENTES -->
-<?php
-if ( isset($_SESSION['UsuarioReady'])) {
-	echo "<script> alert('hola') </script>";
-}
- ?>
+
     <div class="video-container vertical-center">
       <div class="front absolute card col-xs-12">
         <h2 class ="white-text">INGRESE SUS DATOS</h2>
@@ -214,6 +216,13 @@ if ( isset($_SESSION['UsuarioReady'])) {
 
 				})
 			})
+			<?php
+			if ( $_SESSION['UsuarioReady']==false) {
+				echo "<script> alert('hola') </script>";
+			}else {
+				echo "<script> alert('hosdads') </script>";
+			}
+			 ?>
 		</script>
 
 
