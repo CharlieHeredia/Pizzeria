@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 if (isset($_POST['funcion'])) {
 
   require_once ("../models/administrador.php");

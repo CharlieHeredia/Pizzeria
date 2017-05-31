@@ -1,7 +1,11 @@
 <?php
 	include_once("controllers/ProductsController.php");
+	include_once("controllers/ClienteController.php");
 	include_once("controllers/AdministradorControllers.php");
 	session_destroy();
+	session_start();
+	$activo='false';
+	$_SESSION['UsuarioReady']='';
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +50,7 @@
                   <li><a href="#">Ayuda</a></li>
                   <li><a href="#">Acerca de nosotros</a></li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
+                  <li><a href="https://www.google.com.mx/">Google</a></li>
                 </ul>
               </li>
             </ul>
@@ -125,18 +129,21 @@
 
 		</script> -->
 		<!-- FORMULARIO PARA MOSTRAR LOS PRODUCTOS REGISTRADOS -->
+
+		<!--
 		<div class="front absolute card col-xs-12">
 			<select class="form-control" name="">
 				<?php
-					foreach ($productos as $producto) {
+				//	foreach ($productos as $producto) {
 				?>
-						<option value=""><?php echo $producto['nombre']; ?></option>
+						<option value=""><?php //echo $producto['nombre']; ?></option>
 				<?php
-					}
+				//	}
 				?>
 			</select>
-		</div>
+		</div> ->>
     <!-- FORMULARIO PARA INGRESAR PRODUCTOS -->
+		<!--
     <div class="video-container vertical-center">
       <div class="front absolute card col-xs-12">
         <h2 class ="white-text">Registrar nuevo producto</h2>
@@ -153,9 +160,69 @@
 
         <button type="button" class="form-control" id="guardar">Guardar producto</button>
       </div>
+    </div> -->
+
+
+
+		<!-- FORMULARIO PARA REGISTRAR CLIENTES -->
+
+    <div class="video-container vertical-center">
+      <div class="front absolute card col-xs-12">
+        <h2 class ="white-text">INGRESE SUS DATOS</h2>
+        <input type="text" class="form-control" id="nombre" value="" placeholder="Ingrese nombre completo"><br>
+        <textarea class="form-control" id="direccion" placeholder="Ingrese dirección"></textarea>
+				<br>
+				<input type="text" class="form-control" id="telefono" value="" placeholder="Ingrese telefono"><br>
+				<!--
+        <select id="categoria" class="form-control" name="">
+					<option value="1">Pizzas</option>
+					<option value="2">Pastas</option>
+					<option value="3">Ensaladas</option>
+        	<option value="4">Bebidas</option>
+        </select><br>
+			-->
+				<br>
+
+        <button type="button" class="form-control" id="guardarCliente">Comenzar</button>
+      </div>
     </div>
 
+		<script src="./assets/js/cliente.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			let guardarCliente = document.querySelector("#guardarCliente");
+			guardarCliente.addEventListener('click',function(){
+				let nombre = document.querySelector("#nombre");
+				let direccion = document.querySelector("#direccion");
+				let telefono = document.querySelector("#telefono");
+
+				let cliente = new Cliente(nombre.value,direccion.value,telefono.value);
+				let listaclientes = new Array();
+				listaclientes.push(cliente);
+				let arregloJSON = JSON.stringify(listaclientes);
+				console.log(arregloJSON);
+				$.ajax({
+					method: "POST",
+					url: "controllers/ClienteController.php",
+					data: {clientes: arregloJSON, funcion: "insertarCliente"}
+				})
+				.done(function(){
+					console.log("Cliente guardado ");
+					<?php
+
+							if ($_SESSION['UsuarioReady'] == 'true') {
+								echo " <script> alert('entro'); </script>";
+								//header('Location: views/menu.php');
+							}else {
+								//echo " <script> alert('enasdadsasdo'); </script>";
+							}
+					 ?>
+				})
+			})
+		</script>
+
+
     <!-- container -->
+<!--
     <script src="./assets/js/script.js" charset="utf-8"></script>
     <script type="text/javascript">
       let guardar = document.querySelector("#guardar");
@@ -183,5 +250,6 @@
       });
 
     </script>
+	-->
   </body>
 </html>

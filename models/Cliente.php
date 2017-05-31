@@ -1,33 +1,30 @@
 <?php
 require_once 'Database.php';
-class Product {
+class Client {
 	public $name;
-	public $price;
-	public $category;
-	public $description;
+	public $phone;
+	public $address;
 
-	public function __construct($name, $price, $category, $description) {
+	public function __construct($name, $address, $phone) {
       $this->name = $name;
-			$this->price = $price;
-	    $this->category = $category;
-	    $this->description = $description;
+			$this->phone = $phone;
+	    $this->address = $address;
   }
 
 	// return rows
 	public function save() {
-
 		$db = new Database();
 		$sql = "INSERT INTO
-						 	producto(nombre, precio, categoria_id, descripcion)
+						 	cliente(nombre, direccion, telefono)
 					VALUES(
 									'".$this->name."',
-									$this->price,
-									$this->category,
-									'".$this->description."'
+									'".$this->address."',
+									'".$this->phone."'
 								)
 					";
 		$db->query($sql);
 		$lastId = (int)$db->mysqli->insert_id;
+		echo "Dentro de Cliente.php: $this->name, $this->address, $this->phone ";
 		echo $lastId;
 		$db->close();
 		return true;
@@ -36,7 +33,7 @@ class Product {
 		$sql = " SELECT
 		 						*
 							FROM
-								producto
+								cliente
 						";
 		$db = new Database();
 		if($rows = $db->query($sql)) {
