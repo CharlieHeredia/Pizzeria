@@ -189,7 +189,7 @@
 			-->
 				<br>
 
-        <button type="button" class="form-control" id="guardarCliente">Comenzar</button>
+        <button type="button" class="form-control" id="guardarCliente" onclick=" location.href='views/menu.php'">Comenzar</button>
       </div>
     </div>
 
@@ -213,16 +213,12 @@
 				})
 				.done(function(){
 					console.log("Cliente guardado ");
-
+					$("#nombre").val("");
+					$("#direccion").val("");
+					$("#telefono").val("");
 				})
 			})
-			<?php
-			if ( $_SESSION['UsuarioReady']==false) {
-				echo "<script> alert('hola') </script>";
-			}else {
-				echo "<script> alert('hosdads') </script>";
-			}
-			 ?>
+
 		</script>
 
 

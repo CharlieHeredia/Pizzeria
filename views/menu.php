@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
   </head>
   <body>
+		<script type="text/javascript" src="../assets/js/catalogo.js" ></script>
     <!-- header -->
     <header>
       <nav class="navbar navbar-inverse">
@@ -39,7 +40,7 @@
             <ul class="nav navbar-nav navbar-right">
 							<!-- Show modal body to sign up -->
               <li><a href="#" data-toggle="modal" data-target="#sign_up_modal"  >Mostrar Carrito</a></li>
-              <li><a href="#" data-toggle="modal" data-target="#sign_up_modal"  >Terminar Compra</a></li>
+              <li><a href="" onclick=" location.href='../'" data-toggle="modal" data-target="#sign_up_modal" >Terminar Compra</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Más <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -47,7 +48,7 @@
                   <li><a href="#">Ayuda</a></li>
                   <li><a href="#">Acerca de nosotros</a></li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">Sucursales</a></li>
                 </ul>
               </li>
             </ul>
@@ -55,10 +56,43 @@
         </div><!-- /.container-fluid -->
       </nav>
     </header>
-    <div class="video-container">
-      <video class="video" src="../public/video.mp4" autoplay loop="">
-      </video>
+
+		<!-- Content Section -->
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Conoce nuestro menu</h2>
+						<img src="../public/Pizza.png" style="align: middle;" alt="Pizza" width="500px">
+
+
+            <div class="pull-right">
+
+            </div>
+        </div>
     </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <h4>Pizzas:</h4>
+            <div class="records_content" id="pizzas"></div>
+        </div>
+    </div>
+		<div class="row">
+        <div class="col-md-12">
+					<img src="../public/refresco.png" style="background-color:white;" alt="Pizza" width="200px">
+            <h4>Bebidas:</h4>
+            <div class="records_content2" id="bebidas"></div>
+        </div>
+    </div>
+		<div class="row">
+        <div class="col-md-12">
+					<img src="../public/ensaladas.png" style="background-color:white;" alt="Pizza" width="400px">
+            <h4>Ensaladas:</h4>
+            <div class="records_content3" id="ensaladas"></div>
+        </div>
+    </div>
+    </div>
+
 
 
 

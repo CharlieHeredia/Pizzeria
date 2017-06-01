@@ -82,6 +82,7 @@ if ($_SESSION['logeadoNuevo'] == 'true') {
             </div>
         </div>
     </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <h4>Productos registrados:</h4>
